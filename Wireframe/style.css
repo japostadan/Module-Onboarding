@@ -16,6 +16,12 @@ As well as useful links to learn more */
  https://web.dev/articles/min-max-clamp
  https://scrimba.com/learn-css-variables-c026
 ====== Design Palette ====== */
+* {
+  box-sizing: border-box;
+}
+/* Css resets */
+*{margin:0; padding:0; box-sizing:border-box;}
+
 :root {
   --paper: oklch(7 0 0);
   --ink: color-mix(in oklab, var(--color) 5%, black);
@@ -30,6 +36,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font: var(--font);
+  background-color: #212121;
 }
 a {
   padding: var(--space);
@@ -54,36 +61,128 @@ footer {
   bottom: 0;
   text-align: center;
 }
-/* ====== Articles Grid Layout ====
-Setting the rules for how articles are placed in the main element.
-Inspect this in Devtools and click the "grid" button in the Elements view
-Play with the options that come up.
-https://developer.chrome.com/docs/devtools/css/grid
-https://gridbyexample.com/learn/
-*/
-main {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* ====== Header Start ====== */
+.header {
+  border-bottom: var(--line);
+  margin-bottom: calc(var(--space) * 2);
+  background-color: brown;
+  text-align: center;
+}
+
+.header h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space);
+  color: white;
+}
+
+.header p {
+  margin: 0;
+  color: white;
+}
+
+/* ====== Header End ====== */
+
+/* ====== Main Content Start ====== */
+.main {
+  padding: var(--space);
+  background-color: #81cc66;
+}
+.main h2 {
+  margin-bottom: var(--space);
+  align-self: start;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+.main p {
+  color: black;
+  margin-bottom: calc(var(--space) * 2);
+  line-height: 1.6;
+}
+
+.readme-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.readme-section a, .wireframe-git-section a {
+  background-color: brown;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.main a:hover {
+  background-color: darkred;
+} 
+
+.readme-section h2 {
+  margin-bottom: var(--space);
+  color: black;
+  font-weight: bold;
+}
+
+.readme-section p {
+  margin-bottom: calc(var(--space) * 2);
+  line-height: 1.6;
+  color: black;
+  font-size: larger;
+}
+
+.wireframe-git-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   gap: var(--space);
-  > *:first-child {
-    grid-column: span 2;
-  }
+  overflow: hidden;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
 }
-/* ====== Article Layout ====== 
-Setting the rules for how elements are placed in the article. 
-Now laying out just the INSIDE of the repeated card/article design.
-Keeping things orderly and separate is the key to good, simple CSS.
-*/
-article {
-  border: var(--line);
-  padding-bottom: var(--space);
-  text-align: left;
-  display: grid;
-  grid-template-columns: var(--space) 1fr var(--space);
-  > * {
-    grid-column: 2/3;
-  }
-  > img {
-    grid-column: span 3;
-  }
+
+.wireframe-git-section img {
+  height: auto;
+  width: auto;
+  display: block;
+  margin: 0 auto;
 }
+
+.wireframe-git-section article {
+  flex: 1;
+  margin: 0 var(--space);
+}
+
+
+.wireframe-git-section h2 {
+  margin-bottom: var(--space);
+  justify-content: start;
+  align-items: start;
+}
+
+.wireframe-git-section p {
+  color: black;
+  margin-bottom: calc(var(--space) * 2);
+  line-height: 1.6;
+  text-align: start;
+}
+
+
+/* ====== Main Content End ====== */
+
+/* ====== Footer Start ====== */
+.footer {
+  border-top: var(--line);
+  background-color: brown;
+  width: 100%;
+}
+.footer p {
+  color: white;
+  margin: var(--space);
+  text-align: center;
+}
+/* ====== Footer End ====== */
