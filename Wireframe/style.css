@@ -16,11 +16,13 @@ As well as useful links to learn more */
  https://web.dev/articles/min-max-clamp
  https://scrimba.com/learn-css-variables-c026
 ====== Design Palette ====== */
+
+/* Css resets */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-/* Css resets */
-*{margin:0; padding:0; box-sizing:border-box;}
 
 :root {
   --paper: oklch(7 0 0);
@@ -34,19 +36,14 @@ As well as useful links to learn more */
  General rules for basic HTML elements in any context */
 body {
   background: var(--paper);
-  color: var(--ink);
   font: var(--font);
-  background-color: #212121;
+  background-color: #2C8C99;
 }
 a {
   padding: var(--space);
   border: var(--line);
   max-width: fit-content;
-}
-img,
-svg {
-  width: 100%;
-  object-fit: cover;
+  border-color: #ce3c49;
 }
 /* ====== Site Layout ====== 
 Setting the overall rules for page regions
@@ -56,52 +53,81 @@ main {
   max-width: var(--container);
   margin: 0 auto calc(var(--space) * 4) auto;
 }
-footer {
-  position: fixed;
-  bottom: 0;
-  text-align: center;
-}
+
 /* ====== Header Start ====== */
-.header {
-  border-bottom: var(--line);
-  margin-bottom: calc(var(--space) * 2);
-  background-color: brown;
+
+.header{
+  margin: 0; padding: 2em 5em 4em; color: #efefef;
+  overflow:hidden;
+  position: relative;
   text-align: center;
 }
+
+.header::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  height: 100%;
+  width:100%;
+  transform: skewY(-4deg);
+  background: #931621;
+  transform-origin: bottom left;
+  z-index: -1;
+}
+
+.header::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  height: 100%;
+  width:100%;
+  transform: skewY(8deg);
+  background: #931621;
+  transform-origin: bottom right;
+  z-index: -1;
+}
+
 
 .header h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: var(--space);
-  color: white;
+  text-align: center;
+  font-size: 3em;
+  font-weight: 400;
+  text-transform: uppercase;
+  word-spacing: 1px;
+  color: #fff;
 }
 
-.header p {
-  margin: 0;
-  color: white;
+.header span {
+  padding: var(--space);
+  line-height:2em;
+  text-transform: none;
+  font-size:2em;
+  font-weight: normal;
+  font-style: italic; font-family: "Playfair Display","Bookman",serif;
+  color:#999; letter-spacing:-0.005em; word-spacing:1px;
+  letter-spacing:none;
 }
-
 /* ====== Header End ====== */
 
 /* ====== Main Content Start ====== */
 .main {
   padding: var(--space);
-  background-color: #81cc66;
+  background-color: #28464b;
 }
-.main h2 {
+
+.main img {
+  object-fit: cover;
+  width: 100%;
+  height: 600px;
+}
+.main h2,
+.readme-section h2 {
   margin-bottom: var(--space);
   align-self: start;
-  color: black;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-
-.main p {
-  color: black;
-  margin-bottom: calc(var(--space) * 2);
-  line-height: 1.6;
+  color: #efefef;
 }
 
 .readme-section {
@@ -111,27 +137,22 @@ footer {
   position: relative;
 }
 
-.readme-section a, .wireframe-git-section a {
+.readme-section a,
+.wireframe-git-section a {
   background-color: brown;
-  color: white;
+  color: #fff;
   text-decoration: none;
   border-radius: 10px;
 }
 
 .main a:hover {
   background-color: darkred;
-} 
-
-.readme-section h2 {
-  margin-bottom: var(--space);
-  color: black;
-  font-weight: bold;
 }
 
 .readme-section p {
   margin-bottom: calc(var(--space) * 2);
   line-height: 1.6;
-  color: black;
+  color: #fff;
   font-size: larger;
 }
 
@@ -146,10 +167,10 @@ footer {
 }
 
 .wireframe-git-section img {
-  height: auto;
-  width: auto;
+  object-fit: fill;
+  height: 400px;
+  width: 100%;
   display: block;
-  margin: 0 auto;
 }
 
 .wireframe-git-section article {
@@ -157,32 +178,37 @@ footer {
   margin: 0 var(--space);
 }
 
-
 .wireframe-git-section h2 {
   margin-bottom: var(--space);
   justify-content: start;
   align-items: start;
+  color: #efefef;;
 }
 
 .wireframe-git-section p {
-  color: black;
+  color: #fff;
   margin-bottom: calc(var(--space) * 2);
   line-height: 1.6;
   text-align: start;
 }
 
-
 /* ====== Main Content End ====== */
 
 /* ====== Footer Start ====== */
+
+footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+}
+
 .footer {
   border-top: var(--line);
-  background-color: brown;
+  background-color: #931621;
   width: 100%;
 }
 .footer p {
   color: white;
   margin: var(--space);
-  text-align: center;
 }
 /* ====== Footer End ====== */
