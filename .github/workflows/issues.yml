@@ -1,0 +1,25 @@
+name: Copy Issues from Migracode-Barcelona to japostadan
+
+on:
+  workflow_dispatch:
+
+jobs:
+  copy_issues:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install requests
+      - name: Copy issues
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          SRC_REPO: "Migracode-Barcelona/Module-Onboarding"
+          DEST_REPO: "japostadan/Module-Onboarding"
+          # Set your project and column IDs below if you want to add to a Kanban board
+          PROJECT_ID: ""
+          COLUMN_ID: ""
+        run: python .github/scripts/copy_issues.py
