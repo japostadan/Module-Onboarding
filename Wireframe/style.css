@@ -26,11 +26,11 @@ As well as useful links to learn more */
 
 :root {
   --paper: oklch(7 0 0);
-  --ink: color-mix(in oklab, var(--color) 5%, black);
   --font: 100%/1.5 system-ui;
   --space: clamp(6px, 6px + 2vw, 15px);
   --line: 1px solid;
   --container: 1280px;
+  --background: #931621;
 }
 /* ====== Base Elements ======
  General rules for basic HTML elements in any context */
@@ -73,7 +73,7 @@ main {
   height: 100%;
   width: 100%;
   transform: skewY(-4deg);
-  background: #931621;
+  background: var(--background);
   transform-origin: bottom left;
   z-index: -1;
 }
@@ -86,8 +86,8 @@ main {
   height: 100%;
   width: 100%;
   transform: skewY(8deg);
-  background: #931621;
   transform-origin: bottom right;
+  background: var(--background);
   z-index: -1;
 }
 
@@ -208,7 +208,7 @@ footer {
 
 .footer {
   border-top: var(--line);
-  background-color: #931621;
+  background-color: var(--background);
   width: 100%;
 }
 .footer p {
